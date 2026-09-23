@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SolarHub BD — Solar Products for Bangladesh</title>
+  <meta name="description" content="Shop solar panels, inverters, batteries, charge controllers, solar lights, accessories and complete solar kits in Bangladesh." />
+  <meta name="keywords" content="solar panel price Bangladesh, solar inverter BD, solar battery Bangladesh, solar light, solar kit Bangladesh" />
+  <meta name="theme-color" content="#0d5c63" />
+  <meta property="og:title" content="SolarHub BD" />
+  <meta property="og:description" content="A complete solar-products e-commerce storefront for Bangladesh." />
+  <meta property="og:type" content="website" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SolarHub BD",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="topbar">Bangladesh-focused solar marketplace · Prices in BDT · Responsive on mobile & desktop</div>
+
+  <header class="header">
+    <a class="brand" href="#home" aria-label="SolarHub BD home">
+      <span class="brand-mark">☀</span>
+      <span><strong>SolarHub</strong><small>BD</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#kits">Solar Kits</a>
+      <a href="#service">Installation</a>
+      <a href="#faq">FAQ</a>
+      <a href="#admin">Admin</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="wishlistBtn" title="Wishlist">♡ <span id="wishlistCount">0</span></button>
+      <button class="icon-btn" id="compareBtn" title="Compare">⇄ <span id="compareCount">0</span></button>
+      <button class="cart-btn" id="cartBtn">Cart <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section-shell">
+      <div class="hero-copy">
+        <span class="eyebrow">POWER YOUR HOME. CUT YOUR GRID DEPENDENCE.</span>
+        <h1>Solar products built for everyday life in Bangladesh.</h1>
+        <p>Browse panels, inverters, batteries, controllers, lights, accessories and complete solar kits—all from one clean storefront.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#shop">Shop solar products</a>
+          <a class="secondary-btn" href="#service">Request installation</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>7</strong><span>Product categories</span></div>
+          <div><strong>BDT</strong><span>Local pricing</span></div>
+          <div><strong>4</strong><span>Checkout methods</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="panel panel-a"></div>
+        <div class="panel panel-b"></div>
+        <div class="battery">⚡</div>
+      </div>
+    </section>
+
+    <section class="section-shell category-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">SHOP BY CATEGORY</span>
+          <h2>Everything your solar setup needs</h2>
+        </div>
+      </div>
+      <div id="categoryGrid" class="category-grid"></div>
+    </section>
+
+    <section id="shop" class="shop section-shell">
+      <div class="section-heading split">
+        <div>
+          <span class="eyebrow">PRODUCT CATALOG</span>
+          <h2>Find the right solar equipment</h2>
+        </div>
+        <p>Use search, category and price filters to narrow down products.</p>
+      </div>
+
+      <div class="shop-toolbar">
+        <label class="search-field">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search panels, inverter, battery..." />
+        </label>
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All categories</option>
+        </select>
+        <select id="priceFilter" aria-label="Filter by price">
+          <option value="all">Any price</option>
+          <option value="0-5000">Under ৳5,000</option>
+          <option value="5000-20000">৳5,000–৳20,000</option>
+          <option value="20000-50000">৳20,000–৳50,000</option>
+          <option value="50000-999999">৳50,000+</option>
+        </select>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="priceAsc">Price: low to high</option>
+          <option value="priceDesc">Price: high to low</option>
+          <option value="rating">Top rated</option>
+        </select>
+      </div>
+
+      <div class="result-line"><span id="resultCount"></span> products</div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section id="kits" class="feature-band">
+      <div class="section-shell feature-band-inner">
+        <div>
+          <span class="eyebrow light">COMPLETE SOLAR KITS</span>
+          <h2>Start with a bundled system</h2>
+          <p>Use packaged kits as an easy starting point, then compare individual components if you want to customize.</p>
+        </div>
+        <a class="light-btn" href="#shop" data-category-jump="Solar Kits">View solar kits</a>
+      </div>
+    </section>
+
+    <section class="section-shell benefits">
+      <article><span>✓</span><h3>BDT storefront</h3><p>Local currency display across product cards, cart and checkout.</p></article>
+      <article><span>✓</span><h3>Compare products</h3><p>Shortlist technical options side by side before buying.</p></article>
+      <article><span>✓</span><h3>Flexible checkout</h3><p>UI for card, mobile banking, bank transfer and cash on delivery.</p></article>
+      <article><span>✓</span><h3>Installation requests</h3><p>Capture customer needs, preferred date and project notes.</p></article>
+    </section>
+
+    <section id="service" class="section-shell service-section">
+      <div class="service-card">
+        <div>
+          <span class="eyebrow">INSTALLATION & SERVICE</span>
+          <h2>Request a solar installation assessment</h2>
+          <p>Collect the customer’s basic project information before your team follows up.</p>
+        </div>
+        <form id="serviceForm" class="service-form">
+          <input required name="name" placeholder="Full name" />
+          <input required name="phone" placeholder="Phone number" />
+          <select required name="project">
+            <option value="">Project type</option>
+            <option>Home solar</option>
+            <option>Office / commercial</option>
+            <option>Solar lighting</option>
+            <option>Battery / inverter upgrade</option>
+            <option>Maintenance / inspection</option>
+          </select>
+          <input name="location" placeholder="District / area" />
+          <input name="date" type="date" />
+          <textarea name="notes" rows="4" placeholder="Tell us what you need"></textarea>
+          <button class="primary-btn" type="submit">Send service request</button>
+          <p class="form-message" id="serviceMessage" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq" class="section-shell faq-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">FAQ</span><h2>Common solar shopping questions</h2></div>
+      </div>
+      <details><summary>How do I choose the right inverter?</summary><p>Match inverter capacity to the expected load, startup requirements and battery/system voltage. Product pages can be expanded with your exact engineering recommendations.</p></details>
+      <details><summary>Can customers compare solar products?</summary><p>Yes. Use the compare button on product cards, then open the comparison drawer from the header.</p></details>
+      <details><summary>Are online payments already connected?</summary><p>The checkout UI is ready for integration, but live payment processing requires your chosen payment provider credentials and production backend.</p></details>
+      <details><summary>Can I add real brands and inventory?</summary><p>Yes. Replace the demo catalog data in <code>app.js</code> or connect the UI to your own database/API.</p></details>
+    </section>
+
+    <section id="admin" class="section-shell admin-section">
+      <div class="section-heading split">
+        <div><span class="eyebrow">ADMIN DEMO</span><h2>Store operations snapshot</h2></div>
+        <p>This browser-only demo reads orders and service requests saved on this device.</p>
+      </div>
+      <div class="admin-grid">
+        <div class="admin-stat"><span>Products</span><strong id="adminProducts">0</strong></div>
+        <div class="admin-stat"><span>Orders</span><strong id="adminOrders">0</strong></div>
+        <div class="admin-stat"><span>Service requests</span><strong id="adminRequests">0</strong></div>
+        <div class="admin-stat"><span>Cart value</span><strong id="adminCartValue">৳0</strong></div>
+      </div>
+      <div class="admin-panels">
+        <div>
+          <h3>Recent orders</h3>
+          <div id="adminOrderList" class="admin-list"></div>
+        </div>
+        <div>
+          <h3>Recent service requests</h3>
+          <div id="adminRequestList" class="admin-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="section-shell newsletter-inner">
+        <div><span class="eyebrow light">STAY UPDATED</span><h2>Solar deals, guides and new arrivals</h2></div>
+        <form id="newsletterForm">
+          <input required type="email" placeholder="Email address" />
+          <button class="light-btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell">
+    <div>
+      <a class="brand footer-brand" href="#home"><span class="brand-mark">☀</span><span><strong>SolarHub</strong><small>BD</small></span></a>
+      <p>A complete solar e-commerce starter project for the Bangladesh market.</p>
+    </div>
+    <div><h4>Shop</h4><a href="#shop">All products</a><a href="#kits">Solar kits</a><a href="#service">Installation</a></div>
+    <div><h4>Support</h4><a href="#faq">FAQ</a><a href="#service">Service request</a><a href="#admin">Admin demo</a></div>
+    <div><h4>Store details</h4><p>Add your business address, phone, email, warranty and delivery policies here before launch.</p></div>
+  </footer>
+  <div class="copyright">© <span id="year"></span> SolarHub BD · Demo project</div>
+
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-head"><h2>Your cart</h2><button data-close="cartDrawer">×</button></div>
+    <div id="cartItems" class="drawer-content"></div>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">৳0</strong></div>
+      <button id="checkoutBtn" class="primary-btn full">Proceed to checkout</button>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="wishlistDrawer" aria-hidden="true">
+    <div class="drawer-head"><h2>Wishlist</h2><button data-close="wishlistDrawer">×</button></div>
+    <div id="wishlistItems" class="drawer-content"></div>
+  </aside>
+
+  <aside class="drawer wide" id="compareDrawer" aria-hidden="true">
+    <div class="drawer-head"><h2>Compare products</h2><button data-close="compareDrawer">×</button></div>
+    <div id="compareItems" class="drawer-content compare-grid"></div>
+  </aside>
+
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-card product-modal-card">
+      <button class="modal-close" data-close="productModal">×</button>
+      <div id="productModalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal-card checkout-card">
+      <button class="modal-close" data-close="checkoutModal">×</button>
+      <span class="eyebrow">CHECKOUT</span>
+      <h2>Complete your order</h2>
+      <form id="checkoutForm" class="checkout-form">
+        <div class="two-col">
+          <input required name="name" placeholder="Full name" />
+          <input required name="phone" placeholder="Phone number" />
+        </div>
+        <input required name="address" placeholder="Delivery address" />
+        <div class="two-col">
+          <input required name="district" placeholder="District" />
+          <input name="postcode" placeholder="Postcode (optional)" />
+        </div>
+        <fieldset>
+          <legend>Payment method</legend>
+          <label><input type="radio" name="payment" value="Cash on delivery" checked /> Cash on delivery</label>
+          <label><input type="radio" name="payment" value="Mobile banking" /> Mobile banking</label>
+          <label><input type="radio" name="payment" value="Card" /> Card</label>
+          <label><input type="radio" name="payment" value="Bank transfer" /> Bank transfer</label>
+        </fieldset>
+        <div id="checkoutSummary" class="checkout-summary"></div>
+        <button class="primary-btn full" type="submit">Place demo order</button>
+        <p class="tiny">Demo checkout only. Connect a production backend and payment provider before accepting real payments.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
