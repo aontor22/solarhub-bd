@@ -1,54 +1,78 @@
-# SolarHub BD
+# SolarHub BD Pro
 
-A complete front-end e-commerce starter for a Bangladesh-focused solar-products store.
+A production-style full-stack starter for a Bangladesh-focused solar e-commerce store.
 
 ## Included
 
-- Responsive home page and solar-themed design
-- Categories for panels, inverters, batteries, controllers, lights, accessories and solar kits
-- Product search, category filter, price filter and sorting
-- Product detail modal
-- Cart with quantity controls
-- Wishlist and 3-product comparison
-- BDT pricing
-- Demo checkout with card, mobile banking, bank transfer and cash-on-delivery options
-- Installation/service request form
-- FAQ section
-- Browser-local admin dashboard for demo orders and service requests
-- SEO metadata + WebSite structured data
-- PWA manifest and service worker
-- No external libraries or build tools required
+- Next.js App Router
+- PostgreSQL + Prisma
+- Customer registration/login
+- bcrypt password hashing
+- Signed HTTP-only session cookies
+- Persistent products, users, orders, stock and service requests
+- BDT storefront
+- Search/category/sort catalog
+- Local cart with secure server-side price/stock re-validation
+- Transactional stock decrement
+- Customer order-history page
+- Admin-only operations dashboard
+- Service/installation request workflow
+- Responsive design and SEO metadata
+- Vercel-ready project structure
+- Cash-on-delivery flow
+- Safe placeholder for a verified online payment provider
 
-## Run locally
+## Important
 
-For best results, run a small static server in this folder:
+The seed product catalog contains sample data. Replace prices, brands, specifications and warranty terms with your verified business data before launch.
+
+The project intentionally does **not** fake a live online payment integration. After you obtain credentials from your chosen approved payment provider, connect its server-side API and callback/webhook flow.
+
+## Local setup
+
+1. Install Node.js 20+ and create a PostgreSQL database.
+2. Copy `.env.example` to `.env`.
+3. Fill in `DATABASE_URL`, `AUTH_SECRET`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD`.
+4. Run:
 
 ```bash
-python -m http.server 8080
+npm install
+npm run db:push
+npm run db:seed
+npm run dev
 ```
 
-Then open:
+5. Open `http://localhost:3000`.
 
-http://localhost:8080
+## Vercel
 
-Opening `index.html` directly will also work for most features, though the service worker/PWA install requires a local or hosted web server.
+1. Push the project to GitHub.
+2. Import the repo into Vercel as a Next.js project.
+3. Add every required environment variable from `.env.example`.
+4. Use a production PostgreSQL connection string for `DATABASE_URL`.
+5. From your local machine, with the production `DATABASE_URL` loaded, run:
 
-## Before production launch
+```bash
+npm run db:push
+npm run db:seed
+```
 
-This project intentionally uses demo product content and browser localStorage. Before accepting real orders:
+6. Deploy. The normal build command is:
 
-1. Replace demo products/specifications/prices with verified inventory.
-2. Add your real business contact details, delivery, return, warranty, privacy and terms policies.
-3. Connect a production database and authenticated admin system.
-4. Connect your chosen Bangladesh-compatible payment gateway(s) using server-side credentials.
-5. Add shipping-rate logic, inventory synchronization and order notifications.
-6. Add real product photography and verified technical datasheets.
-7. Add analytics, consent/cookie handling as applicable, and production security hardening.
+```bash
+npm run build
+```
 
-## Main files
+## Environment variables
 
-- `index.html` — storefront structure
-- `styles.css` — responsive visual design
-- `app.js` — catalog, filters, cart, wishlist, compare, checkout and admin demo logic
-- `manifest.webmanifest` — installable web app metadata
-- `sw.js` — basic offline caching
+- `DATABASE_URL`
+- `AUTH_SECRET`
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD`
+- `NEXT_PUBLIC_SITE_URL`
+- `PAYMENT_PROVIDER`
+- payment-provider credentials when you add a real provider
+
+## Before accepting real orders
+
+Add real product images and catalog data, real business contact information, tested delivery/courier rules, reviewed privacy/terms/returns/warranty policies, an approved payment integration, password reset/email verification, rate limiting/bot protection, audit logging, analytics, notification delivery, backups and monitoring.

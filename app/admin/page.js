@@ -1,0 +1,5 @@
+import {redirect} from "next/navigation";
+import {getSession} from "../../lib/auth";
+import {prisma} from "../../lib/prisma";
+export const dynamic="force-dynamic";
+export default async function Admin(){const s=await getSession();if(!s?.sub)redirect("/login");if(s.role!=="ADMIN")redirect("/account");const[products,orders,users,requests,recent]=await Promise.all([prisma.product.count(),prisma.order.count(),prisma.user.count(),prisma.serviceRequest.count(),prisma.order.findMany({orderBy:{createdAt:"desc"},take:8,include:{user:true}})]);return <main className="shell section"><span className="eyebrow">ADMIN</span><h1>Store operations</h1><div className="statGrid"><div><span>Products</span><b>{products}</b></div><div><span>Orders</span><b>{orders}</b></div><div><span>Users</span><b>{users}</b></div><div><span>Service requests</span><b>{requests}</b></div></div><div className="ordersCard"><h2>Recent orders</h2>{recent.map(o=><div className="orderRow" key={o.id}><div><b>{o.orderNo}</b><small>{o.user.email} · {o.status}</small></div><div><b>৳{o.total.toLocaleString("en-BD")}</b><small>{o.paymentMethod} · {o.paymentStatus}</small></div></div>)}</div></main>}

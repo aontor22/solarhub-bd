@@ -1,0 +1,2 @@
+export const metadata={title:"Policies"};
+export default function Policies(){return <main className="shell narrow section"><span className="eyebrow">STORE POLICIES</span><h1>Launch checklist for legal and service policies</h1><p>Replace this placeholder with your reviewed Privacy Policy, Terms & Conditions, Delivery Policy, Returns & Refunds Policy, Warranty Policy and payment terms before taking real customer orders.</p><div className="note">Policy text should reflect your actual business practices and applicable law.</div></main>}

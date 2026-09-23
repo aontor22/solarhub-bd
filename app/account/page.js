@@ -1,0 +1,5 @@
+import {redirect} from "next/navigation";
+import {getSession} from "../../lib/auth";
+import {prisma} from "../../lib/prisma";
+export const dynamic="force-dynamic";
+export default async function Account(){const s=await getSession();if(!s?.sub)redirect("/login");const orders=await prisma.order.findMany({where:{userId:String(s.sub)},orderBy:{createdAt:"desc"},take:20,include:{items:true}});return <main className="shell section"><div className="splitHeading"><div><span className="eyebrow">MY ACCOUNT</span><h1>{s.name||"Customer"}</h1></div><form action="/api/auth/logout" method="post"><button className="secondaryBtn">Sign out</button></form></div><div className="ordersCard"><h2>Orders</h2>{orders.length?orders.map(o=><div className="orderRow" key={o.id}><div><b>{o.orderNo}</b><small>{new Date(o.createdAt).toLocaleDateString("en-BD")} · {o.items.length} line item(s)</small></div><div><b>৳{o.total.toLocaleString("en-BD")}</b><small>{o.status} · {o.paymentStatus}</small></div></div>):<p className="muted">No orders yet. <a href="/shop">Start shopping →</a></p>}</div></main>}

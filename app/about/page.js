@@ -1,0 +1,2 @@
+export const metadata={title:"About"};
+export default function About(){return <main className="shell narrow section"><span className="eyebrow">ABOUT SOLARHUB BD</span><h1>A commerce foundation for a Bangladesh solar business.</h1><p>This build provides the technical storefront foundation. Before launch, replace this page with your verified company story, service coverage, certifications, office details and support channels.</p><div className="note">No business facts have been invented in this starter project.</div></main>}
