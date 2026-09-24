@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="shell section narrow"><span className="eyebrow">404</span><h1>Page not found.</h1><p>The page may have moved or the product is no longer available.</p><a className="primaryBtn" href="/shop">Browse products</a></main>}

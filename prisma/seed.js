@@ -40,8 +40,8 @@ async function main(){
       update:{name,slug,price,stock,categoryId:map[categoryName],specs},
       create:{
         name,slug,sku,price,stock,categoryId:map[categoryName],specs,
-        description:`${name} for solar energy systems in Bangladesh. Replace this seed content with verified commercial data before launch.`,
-        rating:4.5+(i%5)*0.1,featured:i<6,warranty:"Add verified warranty terms"
+        description:`${name} listed for solar energy system planning. Confirm sizing, compatibility and final specifications before purchase.`,
+        rating:0,featured:i<6,warranty:"Warranty terms vary by supplier; confirm the applicable terms before purchase."
       }
     });
   }

@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({reset}){return <main className="shell section narrow"><span className="eyebrow">SOMETHING WENT WRONG</span><h1>We could not load this page.</h1><p>Please retry. If the problem continues, return to the storefront.</p><div className="actions"><button className="primaryBtn" onClick={()=>reset()}>Try again</button><a className="secondaryBtn" href="/">Go home</a></div></main>}

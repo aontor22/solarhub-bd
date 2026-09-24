@@ -1,0 +1,4 @@
+import {prisma} from "../../../../../lib/prisma";
+import {requireAdmin} from "../../../../../lib/auth";
+import {isSameOrigin} from "../../../../../lib/security";
+export async function PATCH(req,{params}){if(!isSameOrigin(req))return Response.json({error:"Invalid request origin."},{status:403});const admin=await requireAdmin();if(!admin)return Response.json({error:"Unauthorized"},{status:401});const {id}=await params;const b=await req.json();try{const coupon=await prisma.coupon.update({where:{id},data:{active:Boolean(b.active)}});await prisma.auditLog.create({data:{actorId:admin.sub,action:"COUPON_UPDATE",entityType:"Coupon",entityId:id,meta:{active:coupon.active}}});return Response.json({coupon})}catch(e){console.error(e);return Response.json({error:"Could not update coupon."},{status:500})}}

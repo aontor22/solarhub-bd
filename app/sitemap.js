@@ -1,0 +1,1 @@
+export default function sitemap(){const base=process.env.NEXT_PUBLIC_SITE_URL||"http://localhost:3000";return ["","/shop","/service","/about","/faq","/policies"].map(path=>({url:`${base}${path}`,lastModified:new Date(),changeFrequency:path==="/shop"?"daily":"monthly",priority:path===""?1:path==="/shop"?.9:.6}))}
